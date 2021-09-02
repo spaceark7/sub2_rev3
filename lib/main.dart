@@ -15,6 +15,7 @@ import 'package:pickeat/data/database/database_helper.dart';
 import 'package:pickeat/ui/detail_restaurant_screen.dart';
 import 'package:pickeat/ui/favorite_screen.dart';
 import 'package:pickeat/ui/home_screen.dart';
+import 'package:pickeat/ui/onBoarding/onboarding_screens.dart';
 import 'package:pickeat/ui/profile_screen.dart';
 import 'package:pickeat/ui/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -68,13 +69,14 @@ class _MyAppState extends State<MyApp> {
                   child: child,
                 ));
           },
-          initialRoute: HomeScreen.routeName,
+          initialRoute: preferences.isFirstLaunch.value ? OnBoardingScreen.routeName : HomeScreen.routeName,
           routes: {
             HomeScreen.routeName: (context) => HomeScreen(),
             DetailScreen.routeName: (context) => DetailScreen(restaurant: ModalRoute.of(context)?.settings.arguments as Restaurant),
             FavoriteScreen.routeName: (context) => FavoriteScreen(),
             ProfileScreen.routeName: (context) => ProfileScreen(),
             SettingsScreen.routeName: (context) => SettingsScreen(),
+            OnBoardingScreen.routeName: (context) => OnBoardingScreen(),
           },
         );
       },

@@ -18,7 +18,7 @@ class RestaurantController extends GetxController {
   var _isSearch = false.obs;
   var _isNotFound = false.obs;
 
-  get restaurants => this._restaurants;
+  List<Restaurant> get restaurants => this._restaurants;
 
   set restaurants(var value) => this._restaurants = value;
 
