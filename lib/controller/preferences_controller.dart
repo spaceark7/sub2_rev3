@@ -23,7 +23,7 @@ class PreferencesController extends GetxController {
   }
 
   void _getDailyReminderPrefs() async {
-    isDarkTheme.value = await preferencesHelper.isDailyReminderActive;
+    isDailyActive.value = await preferencesHelper.isDailyReminderActive;
     update();
   }
 
@@ -45,7 +45,6 @@ class PreferencesController extends GetxController {
   }
 
   void disableFirstLaunch() {
-    
     preferencesHelper.setFirstLaunch(false);
     _getFirstLaunch();
     update();

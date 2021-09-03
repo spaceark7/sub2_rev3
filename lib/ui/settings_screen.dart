@@ -82,6 +82,7 @@ Widget _buildList(BuildContext context) {
           Material(
             child: GetBuilder<SchedulingController>(
               builder: (scheduled) {
+            
                 return ListTile(
                   title: Text(
                     'Reminders',
@@ -90,11 +91,14 @@ Widget _buildList(BuildContext context) {
                   trailing: Switch.adaptive(
                       value: preferences.isDailyActive.value,
                       onChanged: (value) async {
+                        
+                         
                         if (Platform.isIOS) {
                           customDialog(context);
                         } else {
                           scheduled.scheduleReminder(value);
                           preferences.enableDailyPrefs(value);
+                         
                         }
                       }),
                 );

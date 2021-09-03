@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:pickeat/common/style.dart';
 import 'package:pickeat/controller/preferences_controller.dart';
 import 'package:pickeat/ui/home_screen.dart';
 
@@ -16,9 +15,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
-    Get.offAndToNamed(HomeScreen.routeName);
-  }
+ 
 
   Widget _buildFullscrenImage() {
     return Image.asset(

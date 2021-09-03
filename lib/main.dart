@@ -29,6 +29,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final NotificationHelper _notificationHelper = NotificationHelper();
   final BackgroundService _service = BackgroundService();
+  final PreferencesController preferencesController = Get.put(PreferencesController(preferencesHelper: PreferencesHelper(sharedPreferences: SharedPreferences.getInstance())));
   _service.initializeIsolate();
   if (Platform.isAndroid) {
     print("executed android");
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
   final RestaurantController restaurantController = Get.put(RestaurantController());
   final DatabaseController databaseController = Get.put(DatabaseController(databaseHelper: DatabaseHelper()));
   final SchedulingController schedulingController = Get.put(SchedulingController());
-  final PreferencesController preferencesController = Get.put(PreferencesController(preferencesHelper: PreferencesHelper(sharedPreferences: SharedPreferences.getInstance())));
+ 
   @override
   void initState() {
     super.initState();
